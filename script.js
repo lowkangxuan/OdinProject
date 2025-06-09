@@ -22,7 +22,7 @@
 // console.log(div);
 
 let testFunc = (a) => {
-    console.log("hi".concat("test"));
+    console.log("test");
 }
 
 const btns = document.querySelectorAll("button");
