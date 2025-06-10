@@ -12,6 +12,10 @@ body {
     color: var(--black);
 }
 
+a {
+    color: var(--blue);
+}
+
 .section, .footer {
     padding: 150px 500px;
 }
