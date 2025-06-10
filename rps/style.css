@@ -1,0 +1,37 @@
+:root {
+    --dark: #1F2937;
+    --blue: #3882F6;
+    --grey: #E5E7EB;
+    --white: #F9FAF8;
+    --black: #1F2937;
+}
+
+body {
+    display: flex;
+    font-family: Roboto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.scoreboard {
+    display: flex;
+    flex-direction: row;
+    gap: 300px;
+}
+
+.player-choice {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.player-choice button {
+    background-color: var(--blue);
+    color: var(--white);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+}

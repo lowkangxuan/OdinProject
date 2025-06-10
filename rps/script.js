@@ -23,35 +23,47 @@ function getHumanChoice() {
     return "Rock";
 }
 
-function playRound() {
-    let humanSelection = getHumanChoice();
+function playRound(selection) {
+    let humanSelection = selection;
     let computerSelection = getComputerChoice();
+    let gameMessage = " ";
 
     const humanAnsLowered = humanSelection.toLowerCase();
     const computerAnsLowered = computerSelection.toLowerCase();
     console.log(`Human: ${humanAnsLowered}, Computer: ${computerAnsLowered}`);
 
     if (humanAnsLowered === computerAnsLowered) {
-        console.log("It's a TIE!!!");
+        gameMessage = "It's a TIE!!!";
     }
     else if ((humanAnsLowered === "rock" && computerAnsLowered === "scissors") || (humanAnsLowered === "paper" && computerAnsLowered === "rock") || (humanAnsLowered === "scissors" && computerAnsLowered === "paper")) {
-        console.log(`You WON!!! ${humanAnsLowered} beats ${computerAnsLowered}`);
-        humanScore += 1;
+        gameMessage = `You WON!!! ${humanAnsLowered} beats ${computerAnsLowered}`;
+        playerScore += 1;
     }
     else {
-        console.log(`You LOST!!! ${computerAnsLowered} beats ${humanAnsLowered}`);
+        gameMessage = `You LOST!!! ${computerAnsLowered} beats ${humanAnsLowered}`;
         computerScore += 1;
     }
 
-    console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
+    gameMessageID.textContent = gameMessage;
+    updateScoreText();
     return;
 }
 
-const roundToPlay = 1;
-let humanScore = 0;
-let computerScore = 0;
-
-
-for (let i = 0; i < roundToPlay; i++) {
-    playRound();
+function updateScoreText() {
+    playerScoreID.textContent = playerScore;
+    computerScoreID.textContent = computerScore;
 }
+
+const roundToPlay = 1;
+let playerScore = 0;
+let computerScore = 0;
+let playerScoreID = document.getElementById("player-score");
+let computerScoreID = document.getElementById("computer-score");
+let gameMessageID = document.getElementById("message");
+const playBtns = document.querySelectorAll(".play");
+
+playBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        playRound(e.target.id);
+    });
+});
