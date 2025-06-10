@@ -1,0 +1,14 @@
+:root {
+    --dark: #1F2937;
+    --blue: #3882F6;
+    --grey: #E5E7EB;
+    --white: #F9FAF8;
+    --black: #1F2937;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    font-family: Roboto;
+    color: var(--black);
+}
