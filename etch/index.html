@@ -11,13 +11,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="buttons">
+        <div class="catalog">
             <button id="user-choice">start</button>
-            <button id="user-reset-choice">reset</button>       
+            <button id="user-reset-choice">reset</button>
+            <input type="number" id="user-grid-resolution" value="10">
+            <div style="display: flex; gap: 5px;">
+                <label for="user-rainbow">Rainbow:</label> 
+                <input type="checkbox" id="user-rainbow">    
+            </div>   
         </div>
-        <div id="grid-container">
-    
-        </div>
+        <div id="grid-container"></div>
     </div>
     <script src="script.js"></script>
 </body>

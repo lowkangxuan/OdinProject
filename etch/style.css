@@ -18,14 +18,30 @@ body {
     justify-content: center;
     align-content: center;
     vertical-align: middle;
+    gap: 20px;
 }
 
-.buttons {
+.catalog {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 10px;
 }
 
-.buttons button {
+.catalog button {
     text-transform: uppercase;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-container .row {
+    display: flex;
+}
+
+#grid-container .cell {
+    width: 10px;
+    height: 10px;
 }
