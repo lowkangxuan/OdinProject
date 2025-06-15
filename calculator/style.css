@@ -18,6 +18,7 @@ body {
     grid-template-rows: repeat(5, 75px);
     grid-column-gap: 5px;
     grid-row-gap: 5px;
+    
 }
 
 .keypad .key {
