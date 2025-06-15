@@ -7,5 +7,26 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: repeat(5, 75px);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+.keypad .key {
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
+    border-radius: 50%;
+}
+
+.key#submit {
+    border-radius: 25px;
+    grid-area: 1 / col4-start / last-line / 5; 
 }
