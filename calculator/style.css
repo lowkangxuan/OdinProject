@@ -7,27 +7,54 @@
 }
 
 body {
+    background: var(--dark);
+    font-family: Roboto;
+    margin: 0;
+}
+
+.wrapper {
     display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center;
+}
+
+.calculator-body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 80px;
+    font-weight: 900;
+    gap: 10px;
+}
+
+#output {
+    display: block;
+    text-align: right;
+    font-size: 48px;
+    font-weight: 500;
+    max-width: 330px;
+    height: 60px;
 }
 
 .keypad {
     display: grid;
     grid-template-columns: repeat(4, 75px);
     grid-template-rows: repeat(5, 75px);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
-    
+    font-weight: inherit;
+    gap: 15px 10px;
 }
 
 .keypad .key {
     background-color: var(--blue);
     border: 1px solid var(--blue);
     border-radius: 50%;
+    font-weight: inherit;
 }
 
-.key#submit {
-    border-radius: 25px;
-    grid-area: 1 / col4-start / last-line / 5; 
+.key#calculate {
+    border-radius: 100px;
+    grid-area: 2 / 4 / 6 / 5; 
 }
