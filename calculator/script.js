@@ -5,16 +5,31 @@ const multiplyBtn = document.getElementById("multiply");
 const divisionBtn = document.getElementById("division");
 const clearBtn = document.getElementById("clear");
 const calculateBtn = document.getElementById("calculate");
-let firstNum, secondNum;
+const arithmeticID = ["addition", "subtract", "multiply", "division"];
+let firstNum, secondNum = 0;
+let selectedOperator = "";
+let isInputtingFirstNum = true;
+let canInput = true;
 
-clearBtn.addEventListener(("click"), () => {
-    outputSlot.textContent = "";
-});
-
-numerals = document.querySelectorAll(".key.numeric");
+const numerals = document.querySelectorAll(".key.numeric");
 numerals.forEach(numeral => {
     numeral.addEventListener("click", (e) => {
         appendToDisplay(e.target.value);
+    });
+});
+
+const operators = document.querySelectorAll(".key.operator");
+operators.forEach(operator => {
+    operator.addEventListener("click", (e) => {
+        if (arithmeticID.includes(e.target.id)) {
+            console.log(e.target.id);
+        }
+        else if (e.target.id === "clear") {
+            reset();
+        }
+        else if (e.target.id === "calculate") {
+            calculate();
+        }
     });
 });
 
@@ -25,4 +40,13 @@ function appendToDisplay(value) {
     }
     outputSlot.textContent += value;
     console.log(outputSlot.textContent.length)
+}
+
+function calculate() {
+    
+}
+
+function reset() {
+    firstNum = secondNum = 0;
+    outputSlot.textContent = "0";
 }
