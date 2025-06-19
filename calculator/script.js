@@ -6,7 +6,8 @@ const divisionBtn = document.getElementById("division");
 const clearBtn = document.getElementById("clear");
 const calculateBtn = document.getElementById("calculate");
 const arithmeticID = ["addition", "subtract", "multiply", "division"];
-let firstNum = secondNum = 0;
+let firstNum = secondNum = null;
+let finalNum = null;
 let selectedOperator = "";
 let outputText = "0";
 let isInputtingFirstNum = true;
@@ -45,12 +46,12 @@ function appendNumerals(num) {
     let updatedNum;
     // console.log(`isInputtingFirstNum: ${isInputtingFirstNum}`);
     if (isInputtingFirstNum) {
-        firstNum = parseInt(firstNum.toString() + stringNum);
+        firstNum === null ? firstNum = stringNum : firstNum = parseInt(firstNum.toString() + stringNum);
         updatedNum = firstNum;
         console.log(`firstNum: ${firstNum}, typeof: ${typeof(firstNum)}`);
     }
     else {
-        secondNum = parseInt(secondNum.toString() + stringNum);
+        secondNum === null ? secondNum = stringNum : secondNum = parseInt(secondNum.toString() + stringNum);
         updatedNum = secondNum;
         console.log(`secondNum: ${secondNum}, typeof: ${typeof(secondNum)}`);
     }
@@ -68,14 +69,24 @@ function handleArithmeticInput(id) {
     //     isInputtingFirstNum = false;
     //     console.log('test');
     // }
-    selectedOperator = id;
-    updateDisplay(selectedOperator);
-    if (!isInputtingFirstNum) {
-        isInputtingFirstNum = true;
-        calculate();
+    
+    if (selectedOperator !== id) {
+        selectedOperator = id;
+        updateDisplay(selectedOperator);
+    }
+    // if (!isInputtingFirstNum) {
+    //     isInputtingFirstNum = true;
+    //     calculate();
+    //     return;
+    // }
+    // isInputtingFirstNum = false;
+    if (isInputtingFirstNum) {
+        isInputtingFirstNum = false;
         return;
     }
-    isInputtingFirstNum = false;
+    else {
+
+    }
 }
 
 function updateDisplay(value) {
@@ -106,6 +117,10 @@ function divide() {
 }
 
 function calculate() {
+    if (firstNum === null || secondNum === null) {
+        console.log("Calculate cancelled!!!");
+        return;
+    }
     let calculatedNum = 0;
 
     switch (selectedOperator) {
@@ -130,12 +145,12 @@ function calculate() {
 }
 
 function resetInput() {
-    secondNum = 0;
+    secondNum = null;
     selectedOperator = "";
 }
 
 function reset() {
-    firstNum = secondNum = 0;
+    firstNum = secondNum = null;
     outputText = "0";
     selectedOperator = "";
     isInputtingFirstNum = true;
