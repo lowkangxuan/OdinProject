@@ -146,7 +146,7 @@ function subtract() {
 }
 
 function multiply() {
-    return parseFloat(firstNum) * parseFloat(secondNum);
+    return (parseFloat(firstNum * 10) * parseFloat(secondNum * 10)) / 100;
 }
 
 function divide() {
