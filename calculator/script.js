@@ -1,3 +1,4 @@
+const miniOutputSlot = document.getElementById("mini-output");
 const outputSlot = document.getElementById("output");
 const additionBtn = document.getElementById("addition");
 const subtractBtn = document.getElementById("subtract");
@@ -6,12 +7,11 @@ const divisionBtn = document.getElementById("division");
 const clearBtn = document.getElementById("clear");
 const calculateBtn = document.getElementById("calculate");
 const arithmeticID = ["addition", "subtract", "multiply", "division"];
-let firstNum = secondNum = null;
-let finalNum = null;
-let selectedOperator = "";
+let firstNum = secondNum = finalNum = null;
+let selectedOperator = null;
+let miniOutputText = "";
 let outputText = "0";
 let isInputtingFirstNum = true;
-let canInput = true;
 
 init();
 
@@ -38,82 +38,119 @@ operators.forEach(operator => {
 });
 
 function init() {
-    updateDisplay("0");
+    updateMiniOutput("\u00A0");
+    updateOutput("0");
 }
 
 function appendNumerals(num) {
     let stringNum = num.toString();
     let updatedNum;
-    // console.log(`isInputtingFirstNum: ${isInputtingFirstNum}`);
+
+    if (num === ".") {
+        let numToCheck = isInputtingFirstNum ? firstNum : secondNum;
+
+        if (numToCheck === null) {
+            if (isInputtingFirstNum) {
+                firstNum = "0.";
+            }
+            else {
+                secondNum = "0.";
+            }
+            updateOutput("0.");
+            return
+        }
+        
+        // Users should not be allowed to input decimal point twice!!!
+        if (numToCheck.includes(".")) return;
+    }
+
+    // Soft reset inputs if user is entering fresh number after initial calculation
+    if (finalNum !== null && selectedOperator === null) {
+        isInputtingFirstNum = true;
+        firstNum = finalNum = null;
+    }
+
     if (isInputtingFirstNum) {
-        firstNum === null ? firstNum = stringNum : firstNum = parseInt(firstNum.toString() + stringNum);
+        firstNum === null ? firstNum = stringNum : firstNum += stringNum;
         updatedNum = firstNum;
         console.log(`firstNum: ${firstNum}, typeof: ${typeof(firstNum)}`);
     }
     else {
-        secondNum === null ? secondNum = stringNum : secondNum = parseInt(secondNum.toString() + stringNum);
+        secondNum === null ? secondNum = stringNum : secondNum += stringNum;
         updatedNum = secondNum;
         console.log(`secondNum: ${secondNum}, typeof: ${typeof(secondNum)}`);
     }
-    updateDisplay(updatedNum);
+    updateOutput(updatedNum);
 }
 
 function handleArithmeticInput(id) {
-    // if (selectedOperator === id) {
-    //     console.log("Selected operator is the same, break!!!");
-    //     return;
-    // }
+    if (selectedOperator !== null && secondNum !== null) {
+        calculate();
+        updateMiniOutput(finalNum);
+    }
 
-    // if (isInputtingFirstNum || selectedOperator !== id) {
-    //     selectedOperator = id;
-    //     isInputtingFirstNum = false;
-    //     console.log('test');
-    // }
+    if (finalNum !== null) updateMiniOutput(finalNum);
     
     if (selectedOperator !== id) {
         selectedOperator = id;
-        updateDisplay(selectedOperator);
+        let operatorSymbol;
+
+        switch (selectedOperator) {
+            case arithmeticID[0]: // Addition
+                operatorSymbol = "+";
+                break;
+            case arithmeticID[1]: // Subtract
+                operatorSymbol = "-";
+                break;
+            case arithmeticID[2]: // Mulitply
+                operatorSymbol = "x";
+                break;
+            case arithmeticID[3]: // Division
+                operatorSymbol = "/";
+                break;
+        }
+
+        updateOutput(operatorSymbol);
     }
-    // if (!isInputtingFirstNum) {
-    //     isInputtingFirstNum = true;
-    //     calculate();
-    //     return;
-    // }
-    // isInputtingFirstNum = false;
+
+    // Ensure user is inputting second number when arithmetic input is pressed
     if (isInputtingFirstNum) {
         isInputtingFirstNum = false;
         return;
     }
-    else {
-
-    }
 }
 
-function updateDisplay(value) {
-    if (outputText.length >= 12) {
-        console.log(outputText.length);
-        console.log("Output has reached max length!!!");
-        return;
-    }
+function updateMiniOutput(value) {
+    miniOutputText = value.toString();
+    miniOutputSlot.textContent = miniOutputText;
+}
+
+function updateOutput(value) {
     outputText = value.toString();
+    console.log(outputText);
+    if (outputText.length >= 12) {
+        console.log("Output has reached max length!!!");
+        outputText = Number.parseFloat(outputText).toExponential(3);
+    }
+    
     outputSlot.textContent = outputText;
     console.log(`Output Length: ${outputText.length}`);
 }
 
 function add() {
-    return firstNum + secondNum;
+    return parseFloat(firstNum) + parseFloat(secondNum);
 }
 
 function subtract() {
-    return firstNum - secondNum;
+    return parseFloat(firstNum) - parseFloat(secondNum);
 }
 
 function multiply() {
-    return firstNum * secondNum;
+    return parseFloat(firstNum) * parseFloat(secondNum);
 }
 
 function divide() {
-    return firstNum / secondNum;
+    return parseFloat(firstNum) / parseFloat(secondNum);
 }
 
 function calculate() {
@@ -121,38 +158,37 @@ function calculate() {
         console.log("Calculate cancelled!!!");
         return;
     }
-    let calculatedNum = 0;
 
     switch (selectedOperator) {
         case arithmeticID[0]: // Addition
-            calculatedNum = add();
+            finalNum = add();
             break;
         case arithmeticID[1]: // Subtract
-            calculatedNum = subtract();
+            finalNum = subtract();
             break;
         case arithmeticID[2]: // Mulitply
-            calculatedNum = multiply();
+            finalNum = multiply();
             break;
         case arithmeticID[3]: // Division
-            calculatedNum = divide();
+            finalNum = divide();
             break;
     }
 
-    firstNum = calculatedNum;
-    updateDisplay(calculatedNum);
+    firstNum = finalNum;
+    updateOutput(finalNum);
     resetInput();
     console.log(`isInputtingFirstNum: ${isInputtingFirstNum}`);
 }
 
 function resetInput() {
-    secondNum = null;
-    selectedOperator = "";
+    secondNum = selectedOperator = null;
+    miniOutputSlot.textContent = "\u00A0";
 }
 
 function reset() {
-    firstNum = secondNum = null;
+    firstNum = secondNum = finalNum = selectedOperator = null;
     outputText = "0";
-    selectedOperator = "";
     isInputtingFirstNum = true;
+    miniOutputSlot.textContent = "\u00A0";
     outputSlot.textContent = outputText;
 }
