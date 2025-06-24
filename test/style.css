@@ -1,0 +1,40 @@
+body {
+    background-color: grey;
+}
+
+.container {
+    display: grid;
+    grid-template: 100px 100px 500px 100px / 200px 600px;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header, .sidebar, .nav, .article, .footer {
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header {
+    background-color: darkgreen;
+    grid-area: 1 / 1 / 2 / 3;
+}
+
+.sidebar {
+    background-color: darkcyan;
+    grid-area: 2 / 1 / 4 / 2;
+}
+
+.nav {
+    background-color: purple;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.article {
+    background-color: blueviolet;
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.footer {
+    background-color: darkgrey;
+    grid-area: 4 / 1 / 5 / 3;
+}
