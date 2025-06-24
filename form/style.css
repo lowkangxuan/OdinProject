@@ -1,0 +1,12 @@
+:root {
+    --green-accent: #596D48;
+}
+
+body {
+
+}
+
+@font-face {
+    font-family: Norse-Bold;
+    src: url(../fonts/Norse-Bold.otf);
+}
