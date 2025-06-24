@@ -1,12 +1,40 @@
+@font-face {
+    font-family: Norse-Bold;
+    src: url(../fonts/Norse-Bold.otf);
+}
+
 :root {
     --green-accent: #596D48;
 }
 
 body {
-
+    margin: 0;
 }
 
-@font-face {
-    font-family: Norse-Bold;
-    src: url(../fonts/Norse-Bold.otf);
+.container {
+    display: flex;
 }
+
+/* Left Section */
+.left-section {
+    width: 30%;
+}
+
+.logo-area {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo span {
+    font-family: Norse-Bold, sans-serif;
+    font-size: 4rem;
+    color: #fff;
+}
+
+/* Right Section */
