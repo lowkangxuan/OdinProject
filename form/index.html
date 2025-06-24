@@ -14,11 +14,11 @@
         <div class="left-section">
             <div class="logo-area">
                 <div class="logo">
-                    <img src="odin-logo.png" width="100px" alt="">
-                    <span>ODIN</span>
+                    <img src="odin-logo.png" width="80px" alt="">
                 </div>
-                <span class="bg-credit"></span>
+                <span>ODIN</span>
             </div>
+            <div class="bg-credit">Photo by <a href="https://unsplash.com/@haliewestphoto"> Halie West</a> on Unsplash</div>
         </div>
         <div class="right-section">
             <div class="quote">
@@ -28,10 +28,47 @@
                 </p>
                 <p>You know you want to.</p>
             </div>
-            <form action="">
-
+            <form class="test" action="index.html">
+                <div class="form-container">
+                    <span class="form-title">Let's do this!</span>
+                    <div class="input-wrapper">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name">
+                            </div>
+                            <div class="input-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" id="last_name" name="last_name">
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="number" id="phone_number" name="phone_number">
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" minlength="3" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="confirm_password">Confirm Password</label>
+                                <input type="password" id="confirm_password" name="confirm_password" minlength="3" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submission-container">
+                    <button type="submit">Create Account</button>
+                    <span>Already have an account? <a href="">Log In</a></span>
+                </div>
             </form>
-
         </div>
     </div>
     <script src="script.js"></script>
