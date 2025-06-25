@@ -1,43 +1,99 @@
+:root {
+    --red-accent: darkred;
+    --dark-grey: rgb(93, 93, 93);
+    --light-grey: lightgrey;
+}
+
 body {
-    background-color: grey;
+    background-color: rgb(255, 255, 255);
     height: 100%;
+    font-family: "Roboto", sans-serif;
+}
+
+ul {
+    list-style-type: none;
 }
 
 .container {
     display: grid;
     height: 100%;
-    grid-template: 1fr 1fr 5fr 1fr/ 1fr 3fr;
+    /* grid-template: 1fr 1fr 5fr 1fr/ 1fr 4fr; */
+    grid-template-columns: 1fr 4fr;
     justify-content: center;
-    gap: 15px;
+    gap: 4px;
 }
 
 .header, .sidebar, .nav, .article, .footer {
-    border-radius: 10px;
     text-align: center;
     padding: 16px;
 }
 
 .header {
-    background-color: darkgreen;
+    display: grid;
+    background-color: var(--dark-grey);
+    color: #fff;
+    grid-template-columns: 2fr 3fr;
     grid-area: 1 / 1 / 2 / 3;
+    align-content: center;
+}
+
+.header .logo {
+    align-self: center;
+    justify-self: left;
+}
+
+.header ul {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+
 }
 
 .sidebar {
-    background-color: darkcyan;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: var(--red-accent);
     grid-area: 2 / 1 / 4 / 2;
+    gap: 50px;
+}
+
+.sidebar-box {
+    background-color: #fff;
+    align-content: center;
 }
 
 .nav {
-    background-color: purple;
+    background-color: var(--red-accent);
     grid-area: 2 / 2 / 3 / 3;
+    align-content: center;
+}
+
+.nav ul {
+    display: grid;
+    color: #fff;
+    grid-template-columns: repeat(3, 1fr);
+    text-transform: uppercase;
 }
 
 .article {
-    background-color: blueviolet;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    background-color: grey;
     grid-area: 3 / 2 / 4 / 3;
+    gap: 15px;
+}
+
+.article-card {
+    background-color: #fff;
+    color: #000;
+    height: 200px;
+    padding: 0 10px;
+}
+
+.article-card p {
+    text-align: left;
 }
 
 .footer {
-    background-color: darkgrey;
+    background-color: var(--dark-grey);
     grid-area: 4 / 1 / 5 / 3;
 }
