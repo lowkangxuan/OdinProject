@@ -1,7 +1,13 @@
 :root {
-
+    --blue: #1a92d3;
+    --yellow: #f0b42a;
+    --grey: #e2e8f0;
 }
 
 body {
     
+}
+
+.container {
+    display: grid;
 }
