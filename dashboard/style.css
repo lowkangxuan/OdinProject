@@ -277,6 +277,10 @@ button.basic-btn {
     padding-bottom: 20px;
 }
 
+.trending .card {
+    gap: 20px;
+}
+
 .trending .card .row {
     display: flex;
     flex-direction: row;
