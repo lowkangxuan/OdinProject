@@ -1,0 +1,46 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100dvh;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Form Area */
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+/* Book List Area */
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+h2.book-title {
+    margin: 0;
+}
+
+h2.book-title small {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+}
