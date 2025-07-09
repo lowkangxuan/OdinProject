@@ -1,0 +1,50 @@
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100dvh;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    flex: 1;
+}
+
+.scoreboard {
+    text-align: center;
+}
+
+.scoreboard .row {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.score-card {
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 20px 4px #dcdcdc;
+}
+
+.score-card h2 {
+    margin: 0;
+    margin-bottom: 35px;
+}
+
+#play-grid {
+    display: grid;
+    grid-template: repeat(3, 64px) / repeat(3, 64px);
+}
+
+#play-grid .cell {
+    padding: 20px;
+}
