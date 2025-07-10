@@ -13,34 +13,53 @@ form.addEventListener("submit", (e) => {
     form.reset();
 });
 
-let testBook1 = new Book("Interstellar", "Me", undefined, 100, false);
-let testBook2 = new Book("Another Book", "Him", undefined, 9999, true);
+
+class Book {
+    constructor(title, author, pages, isRead) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+        this.uniqueID = crypto.randomUUID(); // Assigning a unique ID
+    }
+    
+    getInfo() {
+        return (`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Is Read: ${this.isRead}, UID: ${this.uniqueID}`);
+    }
+    
+    setRead(newRead) {
+        this.isRead = newRead;
+    }
+}
+
+let testBook1 = new Book("Interstellar", "Me", 100, false);
+let testBook2 = new Book("Another Book", "Him", 9999, true);
 library.push(testBook1);
 library.push(testBook2);
 refreshBookListDisplay();
 
-function Book(title, author, description, pages, isRead) {
-    if (!new.target) {
-        throw Error("You must use the 'new' operator to call the constructor");
-    }
-    this.title = title;
-    this.author = author;
-    this.description
-    this.pages = pages;
-    this.isRead = isRead;
-    this.uniqueID = crypto.randomUUID(); // Assigning a unique ID
-}
+// function Book(title, author, description, pages, isRead) {
+//     if (!new.target) {
+//         throw Error("You must use the 'new' operator to call the constructor");
+//     }
+//     this.title = title;
+//     this.author = author;
+//     this.description;
+//     this.pages = pages;
+//     this.isRead = isRead;
+//     this.uniqueID = crypto.randomUUID(); // Assigning a unique ID
+// }
 
-Book.prototype.getInfo = function() {
-    return (`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Is Read: ${this.isRead}, UID: ${this.uniqueID}`);
-}
+// Book.prototype.getInfo = function() {
+//     return (`Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Is Read: ${this.isRead}, UID: ${this.uniqueID}`);
+// }
 
-Book.prototype.setRead = function(newRead) {
-    this.isRead = newRead;
-}
+// Book.prototype.setRead = function(newRead) {
+//     this.isRead = newRead;
+// }
 
 function createNewBook() {
-    const newBook = new Book(titleInput.value, authorInput.value, undefined, pageInput.value, isReadInput.value === "read" ? true : false);
+    const newBook = new Book(titleInput.value, authorInput.value, pageInput.value, isReadInput.value === "read" ? true : false);
     library.push(newBook);
     refreshBookListDisplay();
 }
