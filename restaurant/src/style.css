@@ -1,0 +1,61 @@
+:root {
+    --black: #1F2937;
+    --white: #F9FAF8;
+    --grey: #e2e8f0;
+    --dark-grey: #636363;
+    --blue: #3882F6;
+    --yellow: #f0b42a;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    font-family: "Roboto", sans-serif;
+    min-height: 100dvh;
+    margin: 0;
+}
+
+.main-header {
+    background-color: var(--dark-grey);
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+#content {
+    display: flex;
+    padding: 30px;
+}
+
+/* HOME SECTION */
+section.home {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex: 1;
+}
+
+.home .card:first-child {
+    vertical-align: middle;
+    grid-column: 1 / 3;
+}
+
+.card {
+    padding: 20px;
+}
+
+.card h2 {
+    font-size: 3rem;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.card.main {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    align-content: center;
+}
