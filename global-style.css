@@ -2,6 +2,8 @@
     --black: #1F2937;
     --white: #F9FAF8;
     --grey: #e2e8f0;
+    --light-grey: #ededed;
+    --light-grey2: #e1e1e1;
     --dark-grey: #636363;
     --blue: #3882F6;
     --yellow: #f0b42a;
@@ -9,4 +11,20 @@
 
 body {
     font-family: "Roboto", sans-serif;
+}
+
+img.icon {
+    width: 50px;
+}
+
+img.icon.small {
+    width: 25px;
+}
+
+img.icon.large {
+    width: 75px;
+}
+
+img.icon.light {
+    filter: invert(1);
 }

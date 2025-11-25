@@ -1,3 +1,118 @@
+@import "../../global-style.css";
+
 body {
-    background-color: black;
+    background-color: var(--white);
+    margin: 0px;
+}
+
+span.subheader {
+    font-weight: bold;
+}
+
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.5fr;
+    min-height: 100dvh;
+}
+
+.side-headers {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.list-section, .info-section, .content-section {
+    margin: 20px;
+    padding: 20px 0;
+}
+
+.list-section, .info-section {
+    background-color: var(--light-grey);
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.list-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-section * ul {
+    padding-inline-start: 0px;
+}
+
+.list-section * li {
+    list-style-type: none;
+}
+
+.btn {
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid var(--light-grey2);
+    border-radius: 8px;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+.btn .icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.list-btn {
+    border-color: transparent;
+}
+
+.btn.selected, .btn:hover {
+    background-color: var(--light-grey2);
+}
+
+.list-btn .list-color {
+    background-color: red;
+}
+
+/* Content Section */
+.content-section {
+    padding-top: 10px;
+}
+
+.content-header {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.generic-task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.generic-task-list .list-item:not(:last-child) {
+    border-width: 0 0 1px 0;
+    border-color: var(--light-grey);
+    border-style: solid;
+}
+
+.btn.new-list {
+    padding: 15px 20px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 18px;
+}
+
+.list-item input {
+    margin-right:  18px;
+}
+
+.list-item .icon {
+    margin-left: auto;
 }
