@@ -13,16 +13,24 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
-img.icon {
-    width: 50px;
+img.icon, img.icon.medium {
+    width: 48px;
+    height: 48px;
+}
+
+img.icon.tiny {
+    width: 16px;
+    height: 16px;
 }
 
 img.icon.small {
-    width: 25px;
+    width: 24px;
+    height: 24px;
 }
 
 img.icon.large {
-    width: 75px;
+    width: 72px;
+    height: 72px;
 }
 
 img.icon.light {

@@ -13,47 +13,59 @@
             <div>
                 <span class="subheader">Tasks</span>
                 <ul>
-                    <li><button class="btn list-btn">Upcoming</button></li>
-                    <li><button class="btn list-btn">Today</button></li>
+                    <li><button class="btn project-btn"><img src="svg/chevron-double-right.svg" alt="" class="icon small"> Upcoming <span class="counter">123</span></button></li>
+                    <li><button class="btn project-btn"><img src="svg/format-list-checks.svg" alt="" class="icon small">Today</button></li>
                 </ul>
             </div>
             
             <div>
-                <span class="subheader">Lists</span>
-                <ul>
-                    <li><button class="btn list-btn selected"><span class="icon list-color"></span>Personal</button></li>
-                    <li><button class="btn list-btn"><span class="icon list-color"></span>Work</button></li>
-                    <li><button class="btn list-btn"><span class="icon list-color"></span>School</button></li>
+                <span class="subheader">Projects</span>
+                <ul id="project-list" style="margin-bottom: 0;">
+                    <li><button class="btn project-btn selected"><img src="svg/square-rounded.svg" alt="" class="icon tiny">Personal</button></li>
+                    <li><button class="btn project-btn"><img src="svg/square-rounded.svg" alt="" class="icon tiny">Work</button></li>
+                    <li><button class="btn project-btn"><img src="svg/square-rounded.svg" alt="" class="icon tiny">School</button></li>
                 </ul>
+                <button class="btn project-btn" id="create-list"><img src="svg/plus.svg" alt="" class="icon tiny">Add New List</button>
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="content-header">Personal</div>
+        <section class="content-section" id="content-container">
+            <div>
+                <div class="content-header" id="project-title">Personal</div>
+                <div class="counter">12</div>
+            </div>
             <div class="generic-task-list">
                 <button class="btn new-list">
-                    <span class="icon">
-
-                    </span>
+                    <img src="svg/plus.svg" alt="" class="icon small">
                     Add New Task
                 </button>
+                <div id="items">
+                    <div class="list-item">
+                        <input type="checkbox" name="" id="">
+                        <span>Research content ideas</span>
+                        <img src="svg/chevron-right.svg" class="icon small">
+                    </div>
 
-                <div class="list-item">
-                    <input type="checkbox" name="" id="">
-                    <span>Research content ideas</span>
-                    <img src="svg/chevron-right.svg" class="icon small">
-                </div>
+                    <div class="list-item">
+                        <input type="checkbox" name="" id="">
+                        <button class="item-btn">
+                            <div class="list-info">
+                                <span>Complete this</span>
+                                <div class="info-labels">
+                                    <span><img src="svg/calendar-remove.svg" alt="" class="icon tiny"> 22-10-23</span>
+                                    <span><span class="counter">12</span>Subtasks</span>
+                                    <span><img src="svg/square-rounded.svg" alt="" class="icon tiny">Personal</span>
+                                </div>
+                            </div>
+                            <img src="svg/chevron-right.svg" class="icon small">
+                        </button>
+                    </div>
 
-                <div class="list-item">
-                    <input type="checkbox" name="" id="">
-                    <span>Complete this</span>
-                    <img src="svg/chevron-right.svg" class="icon small">
-                </div>
-
-                <div class="list-item">
-                    <input type="checkbox" name="" id="">
-                    <span>Renew License</span>
-                    <img src="svg/chevron-right.svg" class="icon small">
+                    <div class="list-item">
+                        <input type="checkbox" name="" id="">
+                        <span>Renew License</span>
+                        <img src="svg/chevron-right.svg" class="icon small">
+                    </div>
                 </div>
             </div>
         </section>
