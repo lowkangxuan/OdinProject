@@ -1,7 +1,12 @@
 let projects = [];
 
 export function initStorage() {
-
+    if (localStorage.getItem("projects")) {
+        console.log(true);
+    }
+    else {
+        console.log(false);
+    }
 }
 
 export function clearStorage() {

@@ -36,3 +36,16 @@ img.icon.large {
 img.icon.light {
     filter: invert(1);
 }
+
+.d-flex {
+    display: flex;
+}
+
+.d-flex-c {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-10 {
+    gap: 10px;
+}
