@@ -1,11 +1,15 @@
+import { TodoList } from "./classes";
+
 let projects = [];
 
 export function initStorage() {
     if (localStorage.getItem("projects")) {
-        console.log(true);
+        JSON.parse(localStorage.getItem("projects")).forEach((item) => {
+           projects.push(TodoList.fromJSON(item));
+        });
     }
     else {
-        console.log(false);
+        localStorage.setItem("projects", null);
     }
 }
 
@@ -19,4 +23,8 @@ export function addNewProject(obj) {
 
 export function getAllProjects() {
     return projects;
+}
+
+export function save() {
+    localStorage.setItem("projects", JSON.stringify(projects));
 }

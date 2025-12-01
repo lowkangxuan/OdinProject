@@ -1,8 +1,8 @@
 export class TodoList {
-    constructor(title, tasks = []) {
+    constructor(title, tasks = [], id = crypto.randomUUID()) {
         this.title = title;
         this.tasks = tasks;
-        this.id = crypto.randomUUID();
+        this.id = id;
     }
 
     getTasks() {
@@ -10,7 +10,6 @@ export class TodoList {
     }
 
     getNumberOfTasks() {
-        console.log(this.tasks.length);
         return this.tasks.length;
     }
 
@@ -19,16 +18,42 @@ export class TodoList {
     }
 
     removeTask(taskObj) {
-        this.tasks = this.tasks.filter(task => task.id !== taskObj.id);
+        this.tasks = this.tasks.filter((task, index) => {
+            if (task.id !== taskObj.id) {
+                console.log(index);
+                return true;
+            }
+            return false;
+        });
+    }
+
+    updateTask(taskObj) {
+        let modifiedIndex = -1;
+        this.tasks.filter((task, index) => {
+            if (task.id === taskObj.id) {
+                modifiedIndex = index;
+            }
+        });
+        console.log(this.tasks[modifiedIndex]);
+    }
+
+    static fromJSON(emptyObject) {
+        let tasksArr = [];
+        emptyObject.tasks.forEach(task => {
+            console.log(task);
+            tasksArr.push(new TaskData(task.title, task.description, task.dueDate, task.subtasks, task.isCompleted, task.id));
+        });
+        return new TodoList(emptyObject.title, tasksArr, emptyObject.id);
     }
 }
 
 export class TaskData {
-    constructor(title, description = "", dueDate = "", subtasks = []) {
+    constructor(title, description = "", dueDate = "", subtasks = [], isCompleted = false, id=crypto.randomUUID()) {
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.subtasks = subtasks;
-        this.id = crypto.randomUUID();
+        this.isCompleted = isCompleted;
+        this.id = id;
     }
 }

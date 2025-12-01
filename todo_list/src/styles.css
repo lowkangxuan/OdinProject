@@ -32,15 +32,12 @@ span.subheader {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     background-color: var(--light-grey);
     border-radius: 15px;
     padding-left: 20px;
     padding-right: 20px;
-}
-
-#list-section {
-    display: flex;
-    flex-direction: column;
     gap: 20px;
 }
 
@@ -171,4 +168,26 @@ span.subheader {
     background-color: transparent;
     margin-left: auto;
     padding: 0;
+}
+
+.task-modifier {
+    margin-top: auto;
+    justify-content: space-evenly;
+}
+
+.modifier-button {
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    padding: 12px 32px;
+}
+
+.modifier-button#delete-btn {
+    background-color: transparent;
+    border-color: var(--light-grey2);
+}
+
+.modifier-button#save-btn {
+    background-color: var(--yellow);
 }

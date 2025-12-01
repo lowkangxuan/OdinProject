@@ -4,16 +4,17 @@ import * as TabChanger from "./tabchanger";
 import * as StorageManager from "./storage";
 
 const projectListContainer = document.getElementById("project-list");
-const projectBtns = document.querySelectorAll(".project-btn");
 const createListBtn = document.getElementById("create-list");
 
 /* Init localStorage */
 StorageManager.initStorage();
+refreshProjectList();
 
 function createNewList() {
     const newTaskObj = new Classes.TaskData("Task 1", "sdadaf", "sadD");
     const newProjectObj = new Classes.TodoList("New List", [newTaskObj]);
     StorageManager.addNewProject(newProjectObj);
+    StorageManager.save();
 }
 
 function refreshProjectList() {
@@ -38,10 +39,4 @@ function refreshProjectList() {
 createListBtn.addEventListener("click", (e) => {
     createNewList();
     refreshProjectList();
-});
-
-projectBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        // TabChanger.changeTab();
-    });
 });
